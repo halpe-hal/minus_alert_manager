@@ -4,7 +4,7 @@
 
 @layer components {
   .section-heading {
-    @apply text-xl font-bold text-gray-600 mb-4 mt-2
+    @apply text-xl font-bold text-black mb-4 mt-2
       border-l-[5px] border-b border-[#006a38] pl-3 pb-1;
   }
 
