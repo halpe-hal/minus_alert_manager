@@ -78,10 +78,7 @@ export async function runNotifyForStore(storeId: number): Promise<void> {
   // 4. グループ別LINE通知
   const { data: groups } = await supabase
     .from('store_line_groups')
-    .select(`
-      id, group_name, manager_name, line_group_id,
-      store_line_group_categories(category_name)
-    `)
+    .select('id, group_name, line_group_id')
     .eq('store_id', storeId)
     .order('sort_order');
 
@@ -90,10 +87,7 @@ export async function runNotifyForStore(storeId: number): Promise<void> {
   const urgentDays = getUrgentDays();
 
   for (const group of groups) {
-    const categories = (group.store_line_group_categories as { category_name: string }[]).map(
-      (c) => c.category_name,
-    );
-    const groupRecords = records.filter((r) => categories.includes(r.category));
+    const groupRecords = records.filter((r) => r.group_id === group.id);
     if (groupRecords.length === 0) continue;
     if (!group.line_group_id) continue;
 
