@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /Users/nishimurashinpei/Web_app/store_sales_manager/)",
+      "Read(//Users/nishimurashinpei/Web_app/store_sales_manager/**)",
+      "Bash(npm install *)",
+      "Bash(mkdir -p /Users/nishimurashinpei/Web_app/minus_alert_manager/lib/supabase)",
+      "Bash(npm run *)"
+    ],
+    "additionalDirectories": [
+      "/Users/nishimurashinpei/Web_app/minus_alert_manager/lib"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .section-heading {
+    @apply text-xl font-bold text-gray-600 mb-4 mt-2
+      border-l-[5px] border-b border-[#006a38] pl-3 pb-1;
+  }
+
+  .btn-primary {
+    @apply bg-[#006a38] text-white px-4 py-2 rounded-lg font-medium
+      hover:bg-green-800 disabled:opacity-50 disabled:cursor-not-allowed
+      transition-colors;
+  }
+
+  .input-field {
+    @apply border border-gray-300 rounded-lg px-3 py-2 text-sm
+      focus:outline-none focus:ring-2 focus:ring-[#006a38] focus:border-transparent
+      bg-white;
+  }
+}
