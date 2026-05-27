@@ -64,9 +64,9 @@ export async function notifyDeadline(storeId: number, deadlineDate: string) {
     )
     .join('\n');
 
-  const d = new Date(`${deadlineDate}T00:00:00+09:00`);
-  const m = d.getMonth() + 1;
-  const day = d.getDate();
+  const [, mm, dd] = deadlineDate.split('-');
+  const m = Number(mm);
+  const day = Number(dd);
 
   const contactsLine = contacts ? `\n\n提出が遅れる方は、\n\n${contacts}\n\nまで必ず連絡ください！` : '';
   const message = `⚠️シフト提出締切日は\n【${m}/${day}】です！\n提出遅れないようにお願いします！${contactsLine}`;
