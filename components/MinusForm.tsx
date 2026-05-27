@@ -10,6 +10,12 @@ type Props = {
   groups: LineGroup[];
 };
 
+const HALF_HOUR_TIMES = Array.from({ length: 48 }, (_, i) => {
+  const h = String(Math.floor(i / 2)).padStart(2, '0');
+  const m = i % 2 === 0 ? '00' : '30';
+  return `${h}:${m}`;
+});
+
 export default function MinusForm({ storeId, groups }: Props) {
   const today = getTodayJST();
 
@@ -85,21 +91,27 @@ export default function MinusForm({ storeId, groups }: Props) {
         </div>
         <div>
           <label className="block text-sm text-gray-600 mb-1">開始</label>
-          <input
-            type="time"
+          <select
             value={startTime}
             onChange={(e) => setStartTime(e.target.value)}
             className="input-field w-full"
-          />
+          >
+            {HALF_HOUR_TIMES.map((t) => (
+              <option key={t} value={t}>{t}</option>
+            ))}
+          </select>
         </div>
         <div>
           <label className="block text-sm text-gray-600 mb-1">終了</label>
-          <input
-            type="time"
+          <select
             value={endTime}
             onChange={(e) => setEndTime(e.target.value)}
             className="input-field w-full"
-          />
+          >
+            {HALF_HOUR_TIMES.map((t) => (
+              <option key={t} value={t}>{t}</option>
+            ))}
+          </select>
         </div>
         <div>
           <label className="block text-sm text-gray-600 mb-1">人数</label>

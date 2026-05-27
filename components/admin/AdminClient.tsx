@@ -39,7 +39,7 @@ export default function AdminClient({ stores, initialConfigs }: Props) {
       </div>
 
       {config ? (
-        <div className="space-y-8">
+        <div key={selectedStoreId} className="space-y-8">
           <StoreTokenSection storeId={selectedStoreId} lineToken={config.line_token} />
           <DeadlineConfigSection storeId={selectedStoreId} deadlineConfig={config.deadlineConfig} />
           <LineGroupsSection storeId={selectedStoreId} groups={config.groups} />
