@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'シフトマイナス管理',
-  description: 'HAL / HALS自由が丘 シフトマイナス管理システム',
+  description: 'Liaグループ シフトマイナス管理システム',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
